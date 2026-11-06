@@ -1,0 +1,9 @@
+# Block direct web access to private folders and files (Apache / Hostinger)
+Options -Indexes
+<FilesMatch "\.(sql|log|md|sample\.php)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(config|database|includes|storage|docs)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/(config|includes|storage|database|docs)/
